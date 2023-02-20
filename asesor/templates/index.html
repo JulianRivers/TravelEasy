@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block body %}
+<section class="vh-100" style="background-color: #9A616D;">
+  <!-- <div class="container py-5 h-100"> -->
+    <div class="container w-75 py-5 h-100 rounded shadow">
+
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="https://scontent-bog1-1.xx.fbcdn.net/v/t1.6435-9/126173233_196268895420676_6511688449102936360_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeH269SuRFps1I5_bFAlxathTqTBzd7Ap3ROpMHN3sCndPSnag6DEh5WLDBRvxgIK-U8iEtOLpAZ9JiHorIW-VW1&_nc_ohc=WbyjOvSmZ94AX9GJ9Ce&_nc_ht=scontent-bog1-1.xx&oh=00_AfBWkKS7wEx0D3gktO7XN75B7J20Xsk9gU5N2cllComQgA&oe=63FBAA06"
+                alt="login form" class="img-fluid" style="width: 600px; height: 100%; border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <form>
+
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <img src="https://scontent.fbga2-1.fna.fbcdn.net/v/t39.30808-6/304792263_772134287091512_1749244208798072030_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeE-eGoxDuiuzlaL9zsEZf_RBhdabiIVzr8GF1puIhXOv3NQn06vKL7LejI0EPmma7htegYsrYPocnxDnxu05PAH&_nc_ohc=GK6FodzoZH0AX9qWx9t&_nc_ht=scontent.fbga2-1.fna&oh=00_AfD-W9vGSvxne6KUEiTh64HjjBd7iWD4wDB0Eg4aEezooQ&oe=63D93D6B" alt="" class="me-3" style="width: 80px;">
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Ingresa a tu cuenta</h5>
+
+                  {{form|crispy}}
+
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock body %}
