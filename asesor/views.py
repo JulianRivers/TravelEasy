@@ -17,8 +17,7 @@ def index(request):
                 print('hola')
                 #messages.error(request, "Contraseña incorrecta")
         except Exception as e:
-            #messages.error(
-            #    request, "Lo sentimos, no pudimos encontrar tu cuenta")
+            #messages.error( request, "Lo sentimos, no pudimos encontrar tu cuenta")
             usuario = None
             print(e)
     form = Login()
