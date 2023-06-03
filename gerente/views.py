@@ -1,15 +1,14 @@
 from django.shortcuts import render, redirect
 from .forms import Login
 from django.contrib.auth import login
-from django.contrib.auth.models import User
-
+from .models import (UserProfile)
 # Create your views here.
 def index(request):
     if request.method == 'POST':
-        username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
         try:
-            usuario = User.objects.get(username=username)
+            usuario = UserProfile.objects.get(email=email)
             if usuario is not None and usuario.check_password(password):
                 login(request, usuario)
                 return redirect('asesor:inicio')
