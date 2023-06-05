@@ -3,43 +3,92 @@
 {% load static %}
 
 {% block body %}
-<section class="vh-100" style="background-color: #9A616D;">
-  <!-- <div class="container py-5 h-100"> -->
-    <div class="container w-75 py-5 h-100 rounded shadow">
-
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-xl-10">
-        <div class="card" style="border-radius: 1rem;">
-          <div class="row g-0">
-            <div class="col-md-6 col-lg-5 d-none d-md-block">
-              <img src="https://scontent-bog1-1.xx.fbcdn.net/v/t1.6435-9/126173233_196268895420676_6511688449102936360_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeH269SuRFps1I5_bFAlxathTqTBzd7Ap3ROpMHN3sCndPSnag6DEh5WLDBRvxgIK-U8iEtOLpAZ9JiHorIW-VW1&_nc_ohc=WbyjOvSmZ94AX9GJ9Ce&_nc_ht=scontent-bog1-1.xx&oh=00_AfBWkKS7wEx0D3gktO7XN75B7J20Xsk9gU5N2cllComQgA&oe=63FBAA06"
-                alt="login form" class="img-fluid" style="width: 600px; height: 100%; border-radius: 1rem 0 0 1rem;" />
-            </div>
-            <div class="col-md-6 col-lg-7 d-flex align-items-center">
-              <div class="card-body p-4 p-lg-5 text-black">
-
-                <form method="POST">
-                  {% csrf_token %}
-                  <div class="d-flex align-items-center mb-3 pb-1">
-                    <img src="https://scontent.fbga2-1.fna.fbcdn.net/v/t39.30808-6/304792263_772134287091512_1749244208798072030_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeE-eGoxDuiuzlaL9zsEZf_RBhdabiIVzr8GF1puIhXOv3NQn06vKL7LejI0EPmma7htegYsrYPocnxDnxu05PAH&_nc_ohc=GK6FodzoZH0AX9qWx9t&_nc_ht=scontent.fbga2-1.fna&oh=00_AfD-W9vGSvxne6KUEiTh64HjjBd7iWD4wDB0Eg4aEezooQ&oe=63D93D6B" alt="" class="me-3" style="width: 80px;">
-                  </div>
-
-                  <h1 class="h3 fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Ingresa a tu cuenta</h1>
-
-                  {{form|crispy}}
-
-                  <div class="pt-1 mb-4">
-                    <input type="submit" value="Iniciar sesión"
-                                            class="btn btn-dark btn-lg btn-block">
-                  </div>
-                </form>
-
-              </div>
-            </div>
-          </div>
+    <!-- Navbar -->
+    <nav class="navbar p-4 pe-5">
+        <div class="container-fluid">
+          <a class="navbar-brand color-primary font-size-1" href="#">
+            <img src="{% static 'images/13045f292f2a450687918591a7a1eb70 1.svg' %}" alt="Logo" width="47" height="36" class="d-inline-block align-text-top">
+            TravelEasy
+          </a>
+          <a class="color-primary text-decoration-none font-size-2" href="/login">Iniciar Sesión</a>
         </div>
+    </nav>
+
+    <div class="row ps-5 py-5">
+      <div class="col-12 col-xl-6 px-4 mb-5">
+        <h2 class="color-primary mb-5 font-title-size-1">Simplifica el proceso de viáticos en tu empresa.</h2>
+        <p class="color-secondary pe-4 mb-4">
+          Haz que tus empleados reporten y controlen 
+          sus gastos de viaje de manera eficiente y efectiva con 
+          nuestro sistema automatizado.
+        </p>
+        <a class="color-primary font-size-2" href="#">
+          Empieza ahora
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="col-12 col-xl-6 py-4 position-relative">
+        <img class="foreground-image" src="{% static 'images/image2.svg' %}" width="634" alt="">
+        <img class="backgroung-image-1" src="{% static 'images/image1.png' %}" width="420" alt="">
+        <img class="backgroung-image-2" src="{% static 'images/Rectangle 4.svg' %}" width="400" alt="">
       </div>
     </div>
-  </div>
-</section>
+
+    <div class="row pe-5 align-items-center">
+      <div class="col-12 col-xl-6 mb-5">
+        <img src="{% static 'images/image3.svg' %}" width="534" alt="">
+      </div>
+      <div class="col-12 col-xl-6 px-5 mb-5">
+        <h2 class="color-primary mb-4 font-size-1">Ahorra tiempo y recursos.</h2>
+        <p class="color-secondary mb-4">
+          Con TravelEasy, el proceso de gestión de viáticos se vuelve más 
+          eficiente y automatizado, permitiendo a tus empleados 
+          ahorrar tiempo y a tu empresa ahorrar recursos.
+        </p>
+      </div>
+    </div>
+
+    <div class="row ps-5 align-items-center">
+      <div class="col-12 col-xl-6 px-4 mb-5">
+        <h2 class="color-primary mb-4 font-size-1">Controla los gastos.</h2>
+        <p class="color-secondary mb-4">
+          Con el sistema centralizado de TravelEasy, tu empresa puede tener un 
+          mayor control y visibilidad sobre los gastos de viáticos de tus 
+          empleados, evitando fraudes o gastos innecesarios.
+        </p>
+      </div>
+      <div class="col-12 col-xl-6 mb-5 d-flex justify-content-end">
+        <img src="{% static 'images/image4.svg' %}" width="534" alt="">
+      </div>
+    </div>
+
+    <div class="row pe-5 align-items-center">
+      <div class="col-12 col-xl-6 mb-5">
+        <img src="{% static 'images/image5.svg' %}" width="534" alt="">
+      </div>
+      <div class="col-12 col-xl-6 px-5 mb-5">
+        <h2 class="color-primary mb-4 font-size-1">Facilita el reporte de los gastos.</h2>
+        <p class="color-secondary mb-4">
+          Con nuestro sistema automatizado, tus empleados pueden 
+          reportar de manera fácil y eficiente los gastos de sus viajes, 
+          eliminando el tedioso proceso de llenado de papeles y 
+          formularios.
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-color-third d-flex mb-5 justify-content-center quoter">
+      <p class="text-white text-center fs-4">
+        "Nuestros empleados ahora pueden enfocarse en lo
+        importante del viaje en lugar de tener que 
+        preocuparse por la gestión de sus gastos gracias a
+        TravelEasy"
+      </p>
+    </div>
+
+    <footer class="mt-5 p-4 text-white text-end bg-color-primary">
+      TravelEasy 2023
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 {% endblock body %}

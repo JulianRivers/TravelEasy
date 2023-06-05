@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import (AbstractBaseUser, PermissionsMixin, BaseUserManager)
-from django.contrib.auth.models import AbstractUser, Group, Permission
-# Modelos de la base de datos
+from django.contrib.auth.models import AbstractUser
 
 class Departamento (models.Model):
     """
@@ -27,23 +26,23 @@ class TipoViatico(models.Model):
 class UserProfileManager(BaseUserManager):
     """ Manager del Modelo de Perfil de Usarios """
 
-    def create_user(self, email, nombres, apellidos, password=None):
+    def create_user(self, email, name, apellidos, password=None):
         """ Crear nuevo UserProfile"""
         if not email:
             raise ValueError('Usuario debe tener un email')
         
         
         email = self.normalize_email(email)
-        user  = self.model(email=email, nombres=nombres, apellidos=apellidos)
+        user  = self.model(email=email, name=name, apellidos=apellidos)
 
         user.set_password(password)
         user.save(using=self._db)
 
         return user
     
-    def create_superuser(self, email, nombres, apellidos, password):
+    def create_superuser(self, email, name, apellidos, password):
         """ Crear un Super Usuario"""
-        user              = self.create_user(email, nombres, apellidos, password)
+        user              = self.create_user(email, name, apellidos, password)
         user.is_superuser = True
         user.is_staff     = True
 
@@ -69,7 +68,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     objects = UserProfileManager()
 
     USERNAME_FIELD  = 'email'
-    REQUIRED_FIELDS = ['nombres', "apellidos"]
+    REQUIRED_FIELDS = ['name', "apellidos"]
 
     def get_full_name(self):
         ''' Obtener nombre completo del usuario'''
@@ -92,6 +91,10 @@ class Evento(models.Model):
     fecha_fin = models.DateField()
     usuarios = models.ManyToManyField(UserProfile, through='AsistenciaEvento')
 
+    def __str__(self):
+        ''' Obtener cadena representativa de nuestro usuario '''
+        return self.lugar
+
 class AsistenciaEvento(models.Model):
     """
     Modelo que representa la relación muchos a muchos entre un empleado y un evento.
@@ -100,12 +103,16 @@ class AsistenciaEvento(models.Model):
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
     fecha_asistencia = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        ''' Obtener cadena representativa de nuestro usuario '''
+        return f"{self.usuario.name} asiste al evento en {self.evento.lugar}"
+
 class Viatico(models.Model):
     costo = models.FloatField()
     fecha_gasto = models.DateField()
     soporte = models.ImageField(upload_to='viaticos/')
     evento = models.ForeignKey('Evento', on_delete=models.CASCADE)
     tipo_viatico = models.ForeignKey(TipoViatico, on_delete=models.CASCADE)
-
+    verificado = models.BooleanField()
     def __str__(self):
         return f"Viatico {self.id}"
