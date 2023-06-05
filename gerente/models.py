@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import (AbstractBaseUser, PermissionsMixin, BaseUserManager)
 from django.contrib.auth.models import AbstractUser
 
+# Modelos de la base de datos
+
 class Departamento (models.Model):
     """
     Modelo que representa la tabla en la BD de Departamentos en los que trabajan los usuarios
@@ -107,12 +109,17 @@ class AsistenciaEvento(models.Model):
         ''' Obtener cadena representativa de nuestro usuario '''
         return f"{self.usuario.name} asiste al evento en {self.evento.lugar}"
 
+
 class Viatico(models.Model):
+    """
+    Modelo que representa un Viatico en la BD
+    """
     costo = models.FloatField()
     fecha_gasto = models.DateField()
     soporte = models.ImageField(upload_to='viaticos/')
     evento = models.ForeignKey('Evento', on_delete=models.CASCADE)
     tipo_viatico = models.ForeignKey(TipoViatico, on_delete=models.CASCADE)
     verificado = models.BooleanField()
+    
     def __str__(self):
         return f"Viatico {self.id}"
