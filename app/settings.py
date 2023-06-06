@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     
     #Mis app
     'gerente',
+    'empleado'
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "gerente.UserProfile"
+
+MEDIA_URL = ''
+MEDIA_ROOT = os.path.join(BASE_DIR, 'viaticos')

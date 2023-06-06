@@ -33,7 +33,6 @@ class UserProfileManager(BaseUserManager):
         if not email:
             raise ValueError('Usuario debe tener un email')
         
-        
         email = self.normalize_email(email)
         user  = self.model(email=email, name=name, apellidos=apellidos)
 
@@ -88,10 +87,10 @@ class Evento(models.Model):
     """
     Modelo que representa los eventos a los que iran los empleados y necesitaran tener un detalle de sus gastos.
     """
+    nombre = models.CharField('Nombre', max_length=50)
     lugar = models.CharField(max_length=100)
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
-    usuarios = models.ManyToManyField(UserProfile, through='AsistenciaEvento')
 
     def __str__(self):
         ''' Obtener cadena representativa de nuestro usuario '''
