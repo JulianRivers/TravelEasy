@@ -1,0 +1,55 @@
+{% extends 'layouts/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block body %}
+ <!-- Navbar -->
+ <nav class="navbar p-4 pe-5">
+  <div class="container-fluid">
+    <a class="navbar-brand color-primary font-size-1" href="#">
+      <img src="{% static 'images/13045f292f2a450687918591a7a1eb70 1.svg' %}" alt="Logo" width="47" height="36" class="d-inline-block align-text-top">
+      TravelEasy
+    </a>
+    <a class="color-primary text-decoration-none font-size-2" id="logout-link" href="#">{{ request.user.name }}</a>
+    <div id="logout-popup" >
+      <p>¿Deseas cerrar sesión?</p>
+      <button id="logout-btn">Cerrar sesión</button>
+    </div>
+  </div>
+</nav>
+
+<div class="px-5 py-3">
+    <div class="row mb-5">
+        <div class="col-12 col-sm-7">
+            <h2 class="font-size-1">Bienvenido a TravelEasy</h2>
+        </div>
+        <div class="col-12 col-sm-5">
+            <input type="text" class="form-control" placeholder="Buscar...">
+        </div>
+    </div>
+
+    {% for evento in eventos %}
+    <div class="d-flex">
+        <div class="card">
+            <div class="card-header text-white px-4 py-3 bg-color-fourth font-size-1">
+              {{ evento.nombre }}
+            </div>
+            <div class="card-body">
+              <p class="card-text">{{ evento.lugar }}</p>
+              <p class="card-text">{{ evento.fecha_inicio }}</p>
+              <p class="card-text">Fecha Fin: {{ evento.fecha_fin }}</p>
+              <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="d-flex">
+      <div class="card">
+          <div class="card-header text-white px-4 py-3 bg-color-fourth font-size-1">
+            <p>No hay eventos disponibles para mostrar.</p>
+          </div>
+      </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock body %}
