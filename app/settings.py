@@ -144,5 +144,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "gerente.UserProfile"
 
-MEDIA_URL = ''
-MEDIA_ROOT = os.path.join(BASE_DIR, 'viaticos')
+MEDIA_URL = '/viaticos/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
+
