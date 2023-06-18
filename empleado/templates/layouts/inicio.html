@@ -17,7 +17,6 @@
     </div>
   </div>
 </nav>
-
 <div class="px-5 py-3">
     <div class="row mb-5">
         <div class="col-12 col-sm-7">
@@ -27,29 +26,7 @@
             <input type="text" class="form-control" placeholder="Buscar...">
         </div>
     </div>
-
-    {% for evento in eventos %}
-    <div class="d-flex">
-        <div class="card">
-            <div class="card-header text-white px-4 py-3 bg-color-fourth font-size-1">
-              {{ evento.nombre }}
-            </div>
-            <div class="card-body">
-              <p class="card-text">{{ evento.lugar }}</p>
-              <p class="card-text">{{ evento.fecha_inicio }}</p>
-              <p class="card-text">Fecha Fin: {{ evento.fecha_fin }}</p>
-              <a href="#" class="btn btn-primary">Ver más</a>
-            </div>
-        </div>
-    </div>
-    {% empty %}
-    <div class="d-flex">
-      <div class="card">
-          <div class="card-header text-white px-4 py-3 bg-color-fourth font-size-1">
-            <p>No hay eventos disponibles para mostrar.</p>
-          </div>
-      </div>
-  </div>
-  {% endfor %}
+    {% block content %} 
+    {% endblock content %}        
 </div>
 {% endblock body %}
