@@ -1,22 +1,33 @@
-{% extends 'layouts/inicio.html' %}
-{% load crispy_forms_tags %}
-{% load static %}
-
-{% block content %}
+{% extends 'layouts/inicio.html' %} {% load crispy_forms_tags %} {% load static
+%} {% block content %}
 <!-- Aquí el html con la tablita y eso -->
-{{evento.nombre}}
 
-{% for viatico in viaticos %}
-<div class="d-flex">
-    <div class="card">
-        <div class="card-body">
-          <p class="card-text">{{ viatico.fecha_gasto }}</p>
-          <p class="card-text">{{ viatico.soporte }}</p>
-          <p class="card-text">{{ viatico.costo }}</p>
-          <p class="card-text">{{ viatico.verificado }}</p>
-        </div>
-    </div>
+<div class="titulo text-center">
+  <h1>{{evento.nombre}}</h1>
 </div>
-{% endfor %}
-    
-{% endblock content %}
+
+<div class="d-flex justify-content-center ">
+  {% for viatico in viaticos %}
+<table class="table table-striped text-center mx-auto tabletamanio">
+  <thead>
+    <tr>
+      <th scope="col">Fecha</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Soporte</th>
+      <th scope="col">Costo</th>
+      <th scope="col">Verificado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ viatico.fecha_gasto }}</td>
+      <td>{{ viatico.tipo_viatico }}</td>
+      <td>{{ viatico.soporte }}</td>
+      <td>{{ viatico.costo }}</td>
+      <td>{% if viatico.verificado%}✔{% else %}❌{% endif %}</td>
+    </tr>
+  </tbody>
+</table>
+{% endfor %} {% endblock content %}
+</div>
+
