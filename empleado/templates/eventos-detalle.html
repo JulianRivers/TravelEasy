@@ -4,4 +4,19 @@
 
 {% block content %}
 <!-- Aquí el html con la tablita y eso -->
+{{evento.nombre}}
+
+{% for viatico in viaticos %}
+<div class="d-flex">
+    <div class="card">
+        <div class="card-body">
+          <p class="card-text">{{ viatico.fecha_gasto }}</p>
+          <p class="card-text">{{ viatico.soporte }}</p>
+          <p class="card-text">{{ viatico.costo }}</p>
+          <p class="card-text">{{ viatico.verificado }}</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+    
 {% endblock content %}

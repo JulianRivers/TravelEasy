@@ -13,7 +13,7 @@
           <p class="card-text">{{ evento.lugar }}</p>
           <p class="card-text">{{ evento.fecha_inicio }}</p>
           <p class="card-text">Fecha Fin: {{ evento.fecha_fin }}</p>
-          <a href="#" class="btn btn-primary">Ver más</a>
+          <a href="{% url 'empleado:evento' idEvento=evento.id %}" class="btn btn-primary">Ver más</a>
         </div>
     </div>
 </div>
