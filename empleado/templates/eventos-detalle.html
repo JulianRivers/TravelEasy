@@ -3,6 +3,10 @@
 <div class="titulo text-center">
   <h1>{{evento.nombre}}</h1>
 </div>
+<div style="padding-left: 10%;">
+  <button class="btn btn-primary">Agregar</button>
+  <button class="btn btn-primary">Editar</button>
+</div>
 <a href="{% url 'empleado:agregarViatico' idEvento=evento.id %}">AAA</a>
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
   Abrir Modal
