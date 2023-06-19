@@ -25,3 +25,6 @@ class AgregarViatico(forms.ModelForm):
             'costo': 'Costo',
             'soporte': 'Soporte',
         }
+        widgets = {
+            'fecha_gasto': forms.DateInput(attrs={'type': 'date'}),
+        }

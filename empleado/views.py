@@ -1,7 +1,9 @@
-from django.shortcuts import (render, get_object_or_404)
+from django.shortcuts import (render, redirect, get_object_or_404)
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 from gerente.models import (Evento, Viatico)
 from django.http import JsonResponse
+from .forms import (AgregarViatico)
 # Controladores del empleado
 
 @login_required
@@ -33,33 +35,37 @@ def evento(request, idEvento:int):
     return render(request, 'eventos-detalle.html', context)
 
 @login_required
-def evento(request, idEvento:int):
-    """
-    Página donde se ven los viaticos en detalle del evento
-    name = "empleado:evento"
-    """
-    evento = get_object_or_404(Evento, id=idEvento)
-    viaticos = Viatico.objects.filter(evento=evento)
-
-    context = {
-        'evento': evento,
-        'viaticos': viaticos
-    }
-    return render(request, 'eventos-detalle.html', context)
-
-@login_required
 def agregarViatico(request, idEvento:int):
     """
     Pagina donde se agrega la información de los viaticos
     name= "empleado:inicio"
     """
-    if request.method == 'GET':
-        return render(request, 'agregar-viatico.html')
-    
-    user = request.user
-    eventos = Evento.objects.filter(asistenciaevento__usuario=user)
+    evento = get_object_or_404(Evento, id=idEvento)
+
+    # if request.method == 'POST':
+    #     form = AgregarViatico(request.POST, request.FILES)
+    #     if form.is_valid():
+    #         viatico = form.save(commit=False)
+    #         viatico.evento = evento
+    #         viatico.verificado=False
+    #         viatico.save()
+    #         data = {'message': 'Solicitud AJAX recibida correctamente'}
+    #         return JsonResponse(data)
+            
+    # else:
+    form = AgregarViatico()
     context = {
-        'eventos': eventos
+        'form': form,
+        'evento': evento,
     }
-    return JsonResponse({'status': 'success'})
+    return render(request, 'agregar-viatico.html', context)
+
+
+@csrf_exempt
+def mi_vista_ajax(request):
+    if request.method == 'POST':
+        # Procesa la solicitud AJAX
+        # Realiza cualquier operación necesaria en el servidor
+        data = {'message': 'Solicitud AJAX recibida correctamente'}
+        return JsonResponse(data)
 

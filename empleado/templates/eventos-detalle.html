@@ -5,9 +5,8 @@
 <div class="titulo text-center">
   <h1>{{evento.nombre}}</h1>
 </div>
-
+<a href="{% url 'empleado:agregarViatico' idEvento=evento.id %}">AAA</a>
 <div class="d-flex justify-content-center ">
-  {% for viatico in viaticos %}
 <table class="table table-striped text-center mx-auto tabletamanio">
   <thead>
     <tr>
@@ -19,6 +18,7 @@
     </tr>
   </thead>
   <tbody>
+    {% for viatico in viaticos %}
     <tr>
       <td>{{ viatico.fecha_gasto }}</td>
       <td>{{ viatico.tipo_viatico }}</td>
@@ -26,8 +26,9 @@
       <td>{{ viatico.costo }}</td>
       <td>{% if viatico.verificado%}✔{% else %}❌{% endif %}</td>
     </tr>
+    {% endfor %}
   </tbody>
 </table>
-{% endfor %} {% endblock content %}
+{% endblock content %}
 </div>
 
