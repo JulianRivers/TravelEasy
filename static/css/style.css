@@ -122,3 +122,12 @@ body {
   #logout-popup button:hover {
     background: var(--color-primario)
   }
+
+  .titulo{
+    margin-top: 50px;
+    margin-bottom: 100px
+  }
+
+  .tabletamanio{
+    width: 80%;
+  }
