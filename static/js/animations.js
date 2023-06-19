@@ -21,5 +21,3 @@ document.addEventListener('DOMContentLoaded', function() {
     window.location.href = "/logout";
   });
 });
-
-var myModal = new bootstrap.Modal(document.getElementById('myModal'));
