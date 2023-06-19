@@ -15,7 +15,10 @@
 }
 
 body {
-    overflow-x: hidden;
+    display:grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  min-height: 100vh;
 }
 
 .color-primary {
@@ -130,4 +133,8 @@ body {
 
   .tabletamanio{
     width: 80%;
+  }
+
+  footer{
+    background-color: #164E87
   }
