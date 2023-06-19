@@ -41,7 +41,6 @@ def agregarViatico(request, idEvento:int):
     name= "empleado:inicio"
     """
     evento = get_object_or_404(Evento, id=idEvento)
-
     if request.method == 'POST':
         form = AgregarViatico(request.POST, request.FILES)
         if form.is_valid():
