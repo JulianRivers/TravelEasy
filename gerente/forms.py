@@ -1,22 +1,11 @@
 from django import forms
 
-from .models import UserProfile
+from .models import (UserProfile, Viatico)
 
 #Formularios
 
 class Login(forms.Form):
+    """ Formulario de Login para Gerente y Empleado"""
     email = forms.CharField(label='Email ', required=True)
     password = forms.CharField(label='Contraseña ', widget=forms.PasswordInput(attrs={"autocomplete": "current-password"}),
      required=True)
-    
-class Registro(forms.ModelForm):
-    class Meta:
-        model = UserProfile
-        fields = ['name', 'apellidos', 'email', 'departamento', 'password']
-        labels = {
-            'name': 'Nombres',
-            'apellidos': 'Apellidos',
-            'email': 'Email',
-            'departamento': 'Departamento'
-            
-        }

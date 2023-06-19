@@ -15,7 +15,10 @@
 }
 
 body {
-    overflow-x: hidden;
+    display:grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+  min-height: 100vh;
 }
 
 .color-primary {
@@ -121,4 +124,17 @@ body {
   
   #logout-popup button:hover {
     background: var(--color-primario)
+  }
+
+  .titulo{
+    margin-top: 50px;
+    margin-bottom: 100px
+  }
+
+  .tabletamanio{
+    width: 80%;
+  }
+
+  footer{
+    background-color: #164E87
   }
