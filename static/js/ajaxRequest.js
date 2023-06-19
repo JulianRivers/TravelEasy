@@ -5,12 +5,10 @@ $(document).ready(function() {
             type: 'POST',
             dataType: 'json',
             success: function(data) {
-                // Maneja la respuesta JSON aquí
-                // ...
+                console.log('hola')
             },
             error: function(xhr, textStatus, error) {
-                // Maneja los errores aquí
-                // ...
+                console.log('error')
             }
         });
     });
