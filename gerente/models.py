@@ -121,4 +121,4 @@ class Viatico(models.Model):
     verificado = models.BooleanField()
     
     def __str__(self):
-        return f"Viatico {self.id}"
+        return f"Viatico {self.id} en {self.evento}"
