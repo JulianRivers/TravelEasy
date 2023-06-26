@@ -10,8 +10,9 @@ class Registro(forms.ModelForm):
         labels = {
             'name': 'Nombres',
             'apellidos': 'Apellidos',
-            'email': 'Email',
+            'email': 'Email ',
             'departamento': 'Departamento',
+            'password': 'Contraseña',
         }
 
 class AgregarViatico(forms.ModelForm):

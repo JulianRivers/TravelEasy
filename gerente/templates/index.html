@@ -10,11 +10,11 @@ TravelEasy
     <!-- Navbar -->
     <nav class="navbar p-4 pe-5">
         <div class="container-fluid">
-          <a class="navbar-brand color-primary font-size-1" href="#">
+          <a class="navbar-brand color-primary font-size-1" href="{% url 'root:index' %}">
             <img src="{% static 'images/13045f292f2a450687918591a7a1eb70 1.svg' %}" alt="Logo" width="47" height="36" class="d-inline-block align-text-top">
             TravelEasy
           </a>
-          <a class="color-primary text-decoration-none font-size-2" href="/login">Iniciar Sesión</a>
+          <a class="color-primary text-decoration-none font-size-2" href="/login">Iniciar Sesión</a>       
         </div>
     </nav>
 
@@ -26,8 +26,8 @@ TravelEasy
           sus gastos de viaje de manera eficiente y efectiva con 
           nuestro sistema automatizado.
         </p>
-        <a class="color-primary font-size-2" href="#">
-          Empieza ahora
+        <a class="color-primary font-size-2" href="{% url 'empleado:registro' %}">
+          Registrate ahora
           <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>

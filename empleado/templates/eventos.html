@@ -7,6 +7,18 @@ Inicio
 {% endblock title %}
 
 {% block content %}
+{% if messages %}
+<div class="card border-danger text-danger">
+      <div>
+          {% for message in messages %}
+              <div class="alert alert-{{message.tags}}">
+                  {{message}}
+              </div>
+          {% endfor %}   
+      </div>
+</div>
+{% endif %}
+<br>
 {% for evento in eventos %}
 <div class="d-flex">
     <div class="card">

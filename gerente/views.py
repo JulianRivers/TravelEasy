@@ -32,6 +32,7 @@ def loginView(request):
     form = Login()
     return render(request, 'login.html', {'form': form})
 
+
 def index(request):
     """
     root:index
